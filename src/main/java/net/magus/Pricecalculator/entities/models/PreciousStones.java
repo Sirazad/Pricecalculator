@@ -1,4 +1,4 @@
-package net.magus.Pricecalculator.entities;
+package net.magus.Pricecalculator.entities.models;
 
 import lombok.Getter;
 
@@ -27,4 +27,12 @@ public class PreciousStones {
 
     @Enumerated(EnumType.STRING)
     public Coin maxCoin;
+
+    @Enumerated(EnumType.STRING)
+    public MaterialCategory materialCategory;
+
+    @ManyToOne
+    @JoinColumn(name = "type_id")
+    public ProductType type;
+
 }

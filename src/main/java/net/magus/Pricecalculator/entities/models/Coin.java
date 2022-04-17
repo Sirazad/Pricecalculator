@@ -1,4 +1,4 @@
-package net.magus.Pricecalculator.entities;
+package net.magus.Pricecalculator.entities.models;
 
 import lombok.Getter;
 
