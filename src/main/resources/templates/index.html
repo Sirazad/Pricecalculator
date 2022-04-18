@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Ár kalkulátor</title>
+</head>
+
+<body>
+<h1>Ár kalkulátor</h1>
+<p/>
+<div>
+    <h2>Termék kategóriák</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>név</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="category : ${categories}">
+            <td th:text="${category.id}"></td>
+            <td><a th:href="@{/category/{id}(id=${category.id})}" th:text = "${category.type}"></a></td>
+
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
