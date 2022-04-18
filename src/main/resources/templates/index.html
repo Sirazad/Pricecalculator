@@ -9,6 +9,37 @@
 <body>
 <h1>Ár kalkulátor</h1>
 <p/>
+
+<div>
+    <h2>Fizetendő</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>termék</th>
+            <th>mennyiség</th>
+            <th>minőség</th>
+            <th>módosító (%)</th>
+            <th>költség</th>
+        </tr>
+        </thead>
+
+        <tbody>
+            <tr th:each="item : ${cart.items}">
+                <td th:text="${item.name,}"></td>
+                <td th:text="${item.quantity}"></td>
+                <td th:text="${item.quality}"></td>
+                <td th:text="${item.modifier}"></td>
+                <td th:text="${item.price}"></td>
+
+            </tr>
+
+        </tbody>
+    </table>
+
+</div>
+
+<p/>
+
 <div>
     <h2>Termék kategóriák</h2>
     <table>
