@@ -13,15 +13,17 @@ public class HomeController {
     ProductTypeService service;
 
     @GetMapping("/")
-    public String homepage() {
+    public String homepage(Model model) {
+        model.addAttribute("categories", service.getAllProductTypes());
         return "home";
     }
 
 
     @GetMapping("/index")
-    public String showProductTypeList(Model model) {
-        model.addAttribute("categories", service.getAllProductTypes());
-        model.addAttribute("cart", new Cart());
+    public String showProductTypeList(Cart cart) {
+//        model.addAttribute("cart", new Cart());
+        if (cart == null) cart = new Cart();
+
         return "index";
     }
 }

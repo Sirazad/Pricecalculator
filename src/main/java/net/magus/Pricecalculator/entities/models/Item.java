@@ -8,6 +8,9 @@ import javax.validation.constraints.NotNull;
 
 @Data
 public class Item {
+    private static int counter = 0;
+
+    public int id;
 
     @NotNull
     public Products product;
@@ -22,6 +25,11 @@ public class Item {
     public int modifier = 100;
 
     public int price = 0;
+
+    public Item() {
+        id = ++counter;
+        if (counter >= 10_000) counter = 0;
+    }
 
     @Override
     public String toString() {

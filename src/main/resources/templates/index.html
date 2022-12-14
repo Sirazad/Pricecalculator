@@ -4,6 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Ár kalkulátor</title>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+          crossorigin="anonymous">
 </head>
 
 <body>
@@ -20,6 +24,8 @@
             <th>minőség</th>
             <th>módosító (%)</th>
             <th>költség</th>
+            <th></th>
+
         </tr>
         </thead>
 
@@ -30,33 +36,26 @@
                 <td th:text="${item.quality}"></td>
                 <td th:text="${item.modifier}"></td>
                 <td th:text="${item.price}"></td>
+                <td> <a th:href="@{/modifyItem/{id}(id=${item.id})}"
+                        class="btn btn-primary">módosítás</a>
+                    <a th:href="@{/deleteItem/{id}(id=${item.id})}"
+                       class="btn btn-danger">törlés</a>
+                </td>
+            </tr>,
+            <tr>
+                <td>
+                    <a th:href="@{/addItem/}" class="btn btn-primary">új elem</a>
+                </td>
 
             </tr>
 
         </tbody>
+
     </table>
 
 </div>
 
 <p/>
 
-<div>
-    <h2>Termék kategóriák</h2>
-    <table>
-        <thead>
-        <tr>
-            <th>#</th>
-            <th>név</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="category : ${categories}">
-            <td th:text="${category.id}"></td>
-            <td><a th:href="@{/category/{id}(id=${category.id})}" th:text = "${category.type}"></a></td>
-
-        </tr>
-        </tbody>
-    </table>
-</div>
 </body>
 </html>

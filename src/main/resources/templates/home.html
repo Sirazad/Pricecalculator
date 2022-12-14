@@ -1,10 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>price calc</title>
 </head>
 <body>
-<h1>right now</h1>
+<div>
+    <h2>Termék kategóriák</h2>
+    <p>Válassz egy termékcsaládot, vagy az összes opciót.</p>
+    <table>
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>név</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="category : ${categories}">
+            <td th:text="${category.id}"></td>
+            <td><a th:href="@{/category/{id}(id=${category.id})}" th:text = "${category.type}"></a></td>
+
+        </tr>
+        <tr>
+            <td><a th:href="@{/items}" class="btn btn-primary">összes opció</a></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
 </body>
 </html>
