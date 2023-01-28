@@ -2,18 +2,21 @@ package net.magus.Pricecalculator.entities.models;
 
 import lombok.Data;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
+@Entity
 @Data
 public class Item {
     private static int counter = 0;
 
+    @Id
     public int id;
-
-    @NotNull
-    public Products product;
 
     @Min(1)
     @Max(100)
@@ -34,7 +37,7 @@ public class Item {
     @Override
     public String toString() {
         return quantity +" egység " +
-                product.name +
+
                 ", minőség:" + quality +
                 ", módosító (százalék)=" + modifier;
     }
