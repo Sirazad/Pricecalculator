@@ -7,8 +7,8 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 
 @Data
-@MappedSuperclass
-public abstract class Product {
+@Entity
+public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
