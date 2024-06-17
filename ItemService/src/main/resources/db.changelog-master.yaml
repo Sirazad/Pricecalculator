@@ -1,0 +1,39 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: sirazad
+      changes:
+        - createTable:
+            tableName: default_unit
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: unit
+                  type: string
+        - createTable:
+            tableName: item_type
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: name
+                  type: string
+              - column:
+                  name: default_value
+                  type: decimal
+              - column:
+                  name: default_unit_id
+                  type: int
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_item_type_default_unit
+                    references: default_unit(id)
